@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import tiagoDev.cobranca.model.Titulo;
 import tiagoDev.cobranca.repository.TituloRepository;
 
@@ -30,8 +31,10 @@ public class TituloController {
     }
 
     @PostMapping("/saveTitulo")
-    public String save(Titulo t) {
+    public ModelAndView save(Titulo t) {
         tituloRepository.save(t);
-        return "cadastroTitulo";
+        ModelAndView andView = new ModelAndView("cadastroTitulo");
+        andView.addObject("mensagem", "Título salvo com sucesso!");
+        return andView;
     }
 }
