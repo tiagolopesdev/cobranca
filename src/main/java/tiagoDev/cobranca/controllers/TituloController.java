@@ -43,6 +43,11 @@ public class TituloController {
         return andView;
     }
     
+    @RequestMapping
+    public String search(){
+        return "pesquisaTitulo";
+    }
+    
     @ModelAttribute("allStatusTitle")
     public List<StatusTitulo> AllStatusTitle(){
         return Arrays.asList(StatusTitulo.values());
