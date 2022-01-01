@@ -4,20 +4,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layoutPadrao}">
     <head>
-        <meta charset="UTF-8"/>
-        <title>Pesquisa de título</title>
-        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-        <link rel="stylesheet" href="../static/css/bootstrap.min.css" type="text/css">
+        <title>Pesquisa de título</title>     
     </head>
-    <body>
-        <nav class="navbar navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Nome empresa</a>
-            </div>
-        </nav>
+    <section layout:fragment="conteudo">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h1 class="panel-title">Pesquisa de títulos</h1>
@@ -42,7 +35,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </table>
             </div>
         </div>
-        <script src="/js/jquery-3.6.0.min.js"></script> 
-        <script src="/js/bootstrap.min.js"></script> 
-    </body>
+    </section>
 </html>
