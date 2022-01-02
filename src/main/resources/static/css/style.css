@@ -5,7 +5,15 @@
 .panel-default{
     margin-left: 50px;
     margin-right: 50px;
-    padding-top: 25px;
+    padding-top: 50px;
+}
+
+.panel-heading{
+    padding: 20px 15px 20px 15px;
+}
+
+.panel-body{
+    padding: 0px 15px 0px 15px;
 }
 
 .link-panel{

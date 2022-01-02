@@ -45,11 +45,18 @@ public class Titulo {
     @Enumerated(EnumType.STRING)
     private StatusTitulo status;
 
+    public Titulo() {
+    }
+
     public Titulo(String descricao, Date dataVencimento, BigDecimal valor, StatusTitulo status) {
         this.descricao = descricao;
         this.dataVencimento = dataVencimento;
         this.valor = valor;
         this.status = status;
+    }
+    
+    public boolean isPendente(){
+        return StatusTitulo.PENDENTE.equals(this.status);
     }
 
     @Override
