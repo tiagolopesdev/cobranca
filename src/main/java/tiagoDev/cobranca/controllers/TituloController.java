@@ -28,7 +28,7 @@ import tiagoDev.cobranca.repository.TituloRepository;
 @Controller
 @RequestMapping("/titulo")
 public class TituloController {
-    
+
     @Autowired
     private TituloRepository tituloRepository;
 
@@ -43,23 +43,23 @@ public class TituloController {
     public ModelAndView save(@Validated Titulo t, Errors errors) {
         ModelAndView andView = new ModelAndView("cadastroTitulo");
         if (errors.hasErrors()) {
-        return andView;
+            return andView;
         }
         tituloRepository.save(t);
         andView.addObject("mensagem", "Título salvo com sucesso!");
         return andView;
     }
-    
+
     @RequestMapping
-    public ModelAndView search(){
+    public ModelAndView search() {
         List<Titulo> allTitulos = tituloRepository.findAll();
         ModelAndView andView = new ModelAndView("pesquisaTitulo");
         andView.addObject("titulos", allTitulos);
         return andView;
     }
-    
+
     @ModelAttribute("allStatusTitle")
-    public List<StatusTitulo> AllStatusTitle(){
+    public List<StatusTitulo> AllStatusTitle() {
         return Arrays.asList(StatusTitulo.values());
     }
 }

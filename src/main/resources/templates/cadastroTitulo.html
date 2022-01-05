@@ -16,14 +16,7 @@ and open the template in the editor.
             <form class="form needs-validation" novalidate="" th:object="${titulo}" action="/titulo/save" method="POST">
                 <div class="panel panel-default shadow p-3 mb-5 bg-white rounded">
                     <div class="panel-heading">
-                        <div class="alert alert-success" th:if="${!#strings.isEmpty(mensagem)}">
-                            <span th:text="${mensagem}"></span>
-                        </div>
-                        <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
-                            <div th:each="detailedError : ${#fields.detailedErrors()}">
-                                <span th:text="${detailedError.message}"></span>
-                            </div>
-                        </div>
+                        <div th:replace="mensagem"></div>
                         <div class="clearfix">
                             <h4 class="panel-title titulo-panel">Novo Título</h4>
                             <a class="btn btn-outline-info btn-lg link-panel" href="/titulo">Pesquisar título</a> 
