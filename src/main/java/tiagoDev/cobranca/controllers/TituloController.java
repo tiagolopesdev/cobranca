@@ -7,13 +7,16 @@ package tiagoDev.cobranca.controllers;
 
 import java.util.Arrays;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.model.Titulo;
 import tiagoDev.cobranca.repository.TituloRepository;
@@ -32,13 +35,17 @@ public class TituloController {
     @RequestMapping("/new")
     public ModelAndView newTitulo() {
         ModelAndView mav = new ModelAndView("cadastroTitulo");
+        mav.addObject(new Titulo());
         return mav;
     }
 
     @PostMapping("/save")
-    public ModelAndView save(Titulo t) {
-        tituloRepository.save(t);
+    public ModelAndView save(@Validated Titulo t, Errors errors) {
         ModelAndView andView = new ModelAndView("cadastroTitulo");
+        if (errors.hasErrors()) {
+        return andView;
+        }
+        tituloRepository.save(t);
         andView.addObject("mensagem", "Título salvo com sucesso!");
         return andView;
     }
