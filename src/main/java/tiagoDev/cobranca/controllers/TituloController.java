@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -56,6 +57,13 @@ public class TituloController {
         ModelAndView andView = new ModelAndView("pesquisaTitulo");
         andView.addObject("titulos", allTitulos);
         return andView;
+    }
+    
+    @RequestMapping("{codigo}")
+    public ModelAndView edit(@PathVariable("codigo") Titulo titulo){
+        ModelAndView view = new ModelAndView("cadastroTitulo");
+        view.addObject(titulo);
+        return view;
     }
 
     @ModelAttribute("allStatusTitle")
