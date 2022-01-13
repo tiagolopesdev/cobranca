@@ -33,10 +33,12 @@ public class TituloController {
 
     @Autowired
     private TituloRepository tituloRepository;
+    
+    private static final String CADASTRO_VIEW = "cadastroTitulo";
 
     @RequestMapping("/new")
     public ModelAndView newTitulo() {
-        ModelAndView mav = new ModelAndView("cadastroTitulo");
+        ModelAndView mav = new ModelAndView(CADASTRO_VIEW);
         mav.addObject(new Titulo());
         return mav;
     }
@@ -44,7 +46,7 @@ public class TituloController {
     @PostMapping("/save")
     public String save(@Validated Titulo t, Errors errors, RedirectAttributes attributes) {
         if (errors.hasErrors()) {
-            return "cadastroTitulo";
+            return CADASTRO_VIEW;
         }
         tituloRepository.save(t);
         attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
@@ -61,7 +63,7 @@ public class TituloController {
     
     @RequestMapping("{codigo}")
     public ModelAndView edit(@PathVariable("codigo") Titulo titulo){
-        ModelAndView view = new ModelAndView("cadastroTitulo");
+        ModelAndView view = new ModelAndView(CADASTRO_VIEW);
         view.addObject(titulo);
         return view;
     }
