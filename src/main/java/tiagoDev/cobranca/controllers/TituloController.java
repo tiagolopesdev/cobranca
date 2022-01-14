@@ -7,6 +7,7 @@ package tiagoDev.cobranca.controllers;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,11 +62,11 @@ public class TituloController {
         return andView;
     }
     
-    @RequestMapping("{codigo}")
+    @RequestMapping("/{codigo}")
     public ModelAndView edit(@PathVariable("codigo") Titulo titulo){
-        ModelAndView view = new ModelAndView(CADASTRO_VIEW);
-        view.addObject(titulo);
-        return view;
+        ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+        mv.addObject(titulo);
+        return mv;
     }
 
     @ModelAttribute("allStatusTitle")

@@ -23,6 +23,7 @@ and open the template in the editor.
                         </div>
                     </div>
                     <div class="panel-body">
+                        <input type="hidden" th:field="*{codigo}">
                         <div class="form-group" th:classappend="${#fields.hasErrors('descricao')} ? text-danger">
                             <label for="descricao" class="col-sm-2 form-label">Descrição</label>
                             <div class="col-sm-4"> 
