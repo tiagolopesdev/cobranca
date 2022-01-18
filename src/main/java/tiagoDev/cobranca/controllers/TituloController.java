@@ -30,7 +30,7 @@ import tiagoDev.cobranca.repository.TituloRepository;
  * @author tiago
  */
 @Controller
-@RequestMapping("/titulo")
+@RequestMapping("/titulos")
 public class TituloController {
 
     @Autowired
@@ -52,7 +52,7 @@ public class TituloController {
         }
         tituloRepository.save(t);
         attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
-        return "redirect:/titulo/new";
+        return "redirect:/titulos/new";
     }
 
     @RequestMapping
@@ -71,9 +71,10 @@ public class TituloController {
     }
     
     @RequestMapping(value = "/{codigo}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable("codigo") Integer codigo){
+    public String delete(@PathVariable("codigo") Integer codigo, RedirectAttributes attributes){
         tituloRepository.deleteById(codigo);
-        return "redirect:/titulo";
+        attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
+        return "redirect:/titulos";
     }
 
     @ModelAttribute("allStatusTitle")
