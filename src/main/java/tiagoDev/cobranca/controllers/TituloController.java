@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -35,7 +36,7 @@ public class TituloController {
 
     @Autowired
     private TituloRepository tituloRepository;
-    
+
     private static final String CADASTRO_VIEW = "cadastroTitulo";
 
     @RequestMapping("/new")
@@ -50,9 +51,14 @@ public class TituloController {
         if (errors.hasErrors()) {
             return CADASTRO_VIEW;
         }
-        tituloRepository.save(t);
-        attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
-        return "redirect:/titulos/new";
+        try {
+            tituloRepository.save(t);
+            attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
+            return "redirect:/titulos/new";
+        } catch (DataIntegrityViolationException e) {
+            errors.rejectValue("dataVencimento", null, "Formato de data inválido.");
+            return CADASTRO_VIEW;
+        }
     }
 
     @RequestMapping
@@ -62,16 +68,16 @@ public class TituloController {
         andView.addObject("titulos", allTitulos);
         return andView;
     }
-    
+
     @RequestMapping("/{codigo}")
-    public ModelAndView edit(@PathVariable("codigo") Titulo titulo){
+    public ModelAndView edit(@PathVariable("codigo") Titulo titulo) {
         ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
         mv.addObject(titulo);
         return mv;
     }
-    
+
     @RequestMapping(value = "/{codigo}", method = RequestMethod.DELETE)
-    public String delete(@PathVariable("codigo") Integer codigo, RedirectAttributes attributes){
+    public String delete(@PathVariable("codigo") Integer codigo, RedirectAttributes attributes) {
         tituloRepository.deleteById(codigo);
         attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
         return "redirect:/titulos";
