@@ -20,4 +20,9 @@ $('#confirmacaoExclusao').on('show.bs.modal', function (event) {
 
 $(function () {
     $('[rel="tooltip"]').tooltip();
+    $('#valor').maskMoney({
+        decimal: ',',
+        thousands: '.',
+        allowZero: true
+    });    
 });
