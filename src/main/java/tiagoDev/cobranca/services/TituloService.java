@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package tiagoDev.services;
+package tiagoDev.cobranca.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -26,6 +26,10 @@ public class TituloService {
         } catch (DataIntegrityViolationException e) {
             throw new IllegalArgumentException("Formato de data inválida.");
         }
+    }
+    
+    public void deleteTituloService(Integer codigoTitulo){
+        tituloRepository.deleteById(codigoTitulo);
     }
     
 }
