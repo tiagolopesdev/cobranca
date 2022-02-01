@@ -25,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.model.Titulo;
 import tiagoDev.cobranca.repository.TituloRepository;
+import tiagoDev.services.TituloService;
 
 /**
  *
@@ -36,6 +37,9 @@ public class TituloController {
 
     @Autowired
     private TituloRepository tituloRepository;
+    
+    @Autowired
+    private TituloService tituloService;
 
     private static final String CADASTRO_VIEW = "cadastroTitulo";
 
@@ -52,11 +56,11 @@ public class TituloController {
             return CADASTRO_VIEW;
         }
         try {
-            tituloRepository.save(t);
+            tituloService.saveTituloService(t);
             attributes.addFlashAttribute("mensagem", "Título salvo com sucesso!");
             return "redirect:/titulos/new";
-        } catch (DataIntegrityViolationException e) {
-            errors.rejectValue("dataVencimento", null, "Formato de data inválido.");
+        } catch (IllegalArgumentException e) {
+            errors.rejectValue("dataVencimento", null, e.getMessage());
             return CADASTRO_VIEW;
         }
     }
