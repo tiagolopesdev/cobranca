@@ -19,10 +19,20 @@ $('#confirmacaoExclusao').on('show.bs.modal', function (event) {
 });
 
 $(function () {
-    $('[rel="tooltip"]').tooltip();
+    
+    $('[rel="tooltip"]').tooltip('show').tooltip('toggle');
+    
     $('#valor').maskMoney({
         decimal: ',',
         thousands: '.',
         allowZero: true
     });    
+    
+    $('.js-status').on('click', function (event) {
+        event.preventDefault();
+        
+        var buttonSet = $(event.currentTarget);
+        var urlSet = buttonSet.attr('href');     
+    });
+    
 });
