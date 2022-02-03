@@ -86,10 +86,9 @@ public class TituloController {
         return "redirect:/titulos";
     }
     
-    @RequestMapping("/{codigo}/receber")
+    @RequestMapping(value = "/{codigo}/receber", method = RequestMethod.PUT)
     public @ResponseBody String changeStatus(@PathVariable("codigo") Integer codigoTitulo){
-        tituloService.recebe(codigoTitulo);
-        return "OK";
+        return tituloService.recebe(codigoTitulo); 
     }
 
     @ModelAttribute("allStatusTitle")

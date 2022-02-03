@@ -36,10 +36,11 @@ public class TituloService {
         tituloRepository.deleteById(codigoTitulo);
     }
 
-    public void recebe(Integer codigoTitulo) {
+    public String recebe(Integer codigoTitulo) {
         Titulo t = tituloRepository.findById(codigoTitulo).get();
         t.setStatus(StatusTitulo.RECEBIDO);
         tituloRepository.save(t);
+        return StatusTitulo.RECEBIDO.getDescricao();
     }
 
 }
