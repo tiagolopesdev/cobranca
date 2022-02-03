@@ -39,7 +39,9 @@ $(function () {
             type: 'PUT'
         });
 
-        reponse.done(function (e) {
+        response.done(function (e) {
+            var codigoTitulo = buttonSet.data('codigo');
+            $('[data-role=' + codigoTitulo + ']').html('<span class="badge badge-pill badge-success">' + e + '</span>');
             var codigoTitulo = buttonSet.hide();
         });
 
