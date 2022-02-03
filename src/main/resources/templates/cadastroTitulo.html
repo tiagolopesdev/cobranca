@@ -50,7 +50,8 @@ and open the template in the editor.
                             <label for="status" class="col-sm-2 control-label">Status</label>
                             <div class="col-sm-2">
                                 <select class="form-control" name="status">
-                                    <option th:each="status : ${allStatusTitle}" th:value="${status}" th:text="${status.descricao}"></option>
+                                    <option th:each="status : ${allStatusTitle}" th:value="${status}" th:text="${status.descricao}"
+                                            th:field="*{status}"></option>
                                 </select>
                             </div>
                         </div>
