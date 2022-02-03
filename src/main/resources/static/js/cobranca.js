@@ -32,7 +32,12 @@ $(function () {
         event.preventDefault();
         
         var buttonSet = $(event.currentTarget);
-        var urlSet = buttonSet.attr('href');     
+        var urlSet = buttonSet.attr('href');  
+        
+        var response = $.ajax({
+            url: urlSet,
+            type: 'PUT'
+        });
     });
     
 });
