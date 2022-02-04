@@ -20,12 +20,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </div>
             </div>
             <div class="panel-body">
-                <form class="form-horizontal" id="search">
-                    <div class="form-group">
+                <form method="GET" action="/titulos" class="form-horizontal" id="search"
+                      th:object="${filtro}">
+                    <div class="form-group" th:field="*{descricao}">
                         <div class="col-sm-4">
                             <div class="input-group">
                                 <input class="form-control" placeholder="Qual título vocẽ está procurando?"
-                                       autofocus="autofocus"></input>
+                                       autofocus="autofocus" name="descricao"></input>
                                 <span class="input-group-btn">
                                     <button type="submit" class="btn btn-warning">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
