@@ -39,7 +39,7 @@ public class TituloService {
     }
 
     public String recebe(Integer codigoTitulo) {
-        Titulo t = tituloRepository.findById(codigoTitulo).get();
+        t = tituloRepository.findById(codigoTitulo).get();
         t.setStatus(StatusTitulo.RECEBIDO);
         tituloRepository.save(t);
         return StatusTitulo.RECEBIDO.getDescricao();

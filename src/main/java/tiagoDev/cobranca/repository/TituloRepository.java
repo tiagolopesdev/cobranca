@@ -16,11 +16,7 @@ import tiagoDev.cobranca.model.Titulo;
  */
 @Repository
 public interface TituloRepository extends JpaRepository<Titulo, Integer>{
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> correcaoSearchTitle
     public List<Titulo> findByDescricaoContaining(String descricao);
     
 }
