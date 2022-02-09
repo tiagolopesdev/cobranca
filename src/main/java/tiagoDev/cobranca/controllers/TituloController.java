@@ -34,8 +34,13 @@ import tiagoDev.cobranca.services.TituloService;
  */
 @Controller
 @RequestMapping("/titulos")
+<<<<<<< HEAD
 public class TituloController {
 
+=======
+public class TituloController { 
+    
+>>>>>>> correcaoSearchTitle
     @Autowired
     private TituloService tituloService;
 
@@ -64,8 +69,13 @@ public class TituloController {
     }
 
     @RequestMapping
+<<<<<<< HEAD
     public ModelAndView search(@ModelAttribute("filtro") TituloFilter filtro) {     
         List<Titulo> allTitulos = tituloService.filter(filtro);
+=======
+    public ModelAndView search(@ModelAttribute("filtro") TituloFilter filtro) {
+        List<Titulo> allTitulos = tituloService.filtrar(filtro);
+>>>>>>> correcaoSearchTitle
         ModelAndView andView = new ModelAndView("pesquisaTitulo");
         andView.addObject("titulos", allTitulos);
         return andView;
