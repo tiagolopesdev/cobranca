@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -24,6 +25,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.model.Titulo;
 import tiagoDev.cobranca.repository.TituloRepository;
+import tiagoDev.cobranca.repository.filter.TituloFilter;
 import tiagoDev.cobranca.services.TituloService;
 
 /**
@@ -32,10 +34,7 @@ import tiagoDev.cobranca.services.TituloService;
  */
 @Controller
 @RequestMapping("/titulos")
-public class TituloController {
-
-    @Autowired
-    private TituloRepository tituloRepository;
+public class TituloController { 
     
     @Autowired
     private TituloService tituloService;
@@ -65,8 +64,8 @@ public class TituloController {
     }
 
     @RequestMapping
-    public ModelAndView search() {
-        List<Titulo> allTitulos = tituloRepository.findAll();
+    public ModelAndView search(@ModelAttribute("filtro") TituloFilter filtro) {
+        List<Titulo> allTitulos = tituloService.filtrar(filtro);
         ModelAndView andView = new ModelAndView("pesquisaTitulo");
         andView.addObject("titulos", allTitulos);
         return andView;

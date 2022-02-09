@@ -4,6 +4,7 @@
  */
 package tiagoDev.cobranca.services;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.repository.TituloRepository;
 import tiagoDev.cobranca.model.Titulo;
+import tiagoDev.cobranca.repository.filter.TituloFilter;
 
 /**
  *
@@ -43,4 +45,9 @@ public class TituloService {
         return StatusTitulo.RECEBIDO.getDescricao();
     }
 
+    public List<Titulo> filtrar(TituloFilter filter){
+        String descricao = filter.getDescricao() == null ? "%" : filter.getDescricao();
+        return tituloRepository.findByDescricaoContaining(descricao);
+    }
+    
 }
