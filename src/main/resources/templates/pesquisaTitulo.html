@@ -16,11 +16,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div th:replace="mensagem"></div>
                 <div class="clearfix">
                     <h5 class="panel-title titulo-panel">Pesquisa de títulos</h5>
-                    <a class="btn btn-outline-info btn-lg link-panel" href="/titulos/new">Adicionar título</a> 
+                    <a class="btn btn-outline-info btn-lg link-panel" th:href="@{/titulos/new}">Adicionar título</a> 
                 </div>
             </div>
             <div class="panel-body">
-                <form method="GET" class="form-horizontal" action="/titulos" th:object="${filtro}" id="search">
+                <form method="GET" class="form-horizontal" th:action="@{/titulos}" th:object="${filtro}" id="search">
                     <div class="form-group">
                         <div class="col-sm-4">
                             <div class="input-group">
