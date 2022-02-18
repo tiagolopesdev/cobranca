@@ -62,6 +62,14 @@ public class TituloController {
     }
 
     @RequestMapping
+    public ModelAndView getAllTitles(@ModelAttribute("filtro") TituloFilter filter){
+        List<Titulo> allTitulos = tituloService.getAllTitles();
+        ModelAndView andView = new ModelAndView("pesquisaTitulo");
+        andView.addObject("titulos", allTitulos);
+        return andView;
+    }
+    
+    @RequestMapping("/search")
     public ModelAndView search(@ModelAttribute("filtro") TituloFilter filtro) {     
         List<Titulo> allTitulos = tituloService.filter(filtro);
         ModelAndView andView = new ModelAndView("pesquisaTitulo");
