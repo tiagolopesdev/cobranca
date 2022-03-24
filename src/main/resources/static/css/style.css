@@ -12,6 +12,13 @@
 
 }
 
+#countAllTitles{
+    float: right;
+    align-items: baseline;
+    padding-right: 10%;
+    padding-bottom: 2%;
+}
+
 .navbar-brand{
     padding-top: 12px;
 }
@@ -33,5 +40,4 @@
 
 .form-horizontal{
     margin-top: 20px;
-    margin-bottom: 50px;
 }
