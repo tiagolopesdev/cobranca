@@ -7,6 +7,7 @@ package tiagoDev.cobranca.repository;
 
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import tiagoDev.cobranca.model.Titulo;
 
@@ -15,8 +16,10 @@ import tiagoDev.cobranca.model.Titulo;
  * @author tiago
  */
 @Repository
-public interface TituloRepository extends JpaRepository<Titulo, Integer>{
+public interface TituloRepository extends JpaRepository<Titulo, Integer> {
 
     public List<Titulo> findByDescricaoContaining(String descricao);
-    
+
+    public Integer countByStatus(Enum status);
+
 }
