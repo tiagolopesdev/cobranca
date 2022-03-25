@@ -23,6 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.model.Titulo;
+import tiagoDev.cobranca.repository.TituloRepository;
 import tiagoDev.cobranca.repository.filter.TituloFilter;
 import tiagoDev.cobranca.services.TituloService;
 
@@ -36,6 +37,9 @@ public class TituloController {
 
     @Autowired
     private TituloService tituloService;
+
+    @Autowired
+    private TituloRepository tituloRepository;
 
     private static final String CADASTRO_VIEW = "cadastroTitulo";
 
@@ -62,15 +66,15 @@ public class TituloController {
     }
 
     @RequestMapping
-    public ModelAndView getAllTitles(@ModelAttribute("filtro") TituloFilter filter){
+    public ModelAndView getAllTitles(@ModelAttribute("filtro") TituloFilter filter) {
         List<Titulo> allTitulos = tituloService.getAllTitles();
         ModelAndView andView = new ModelAndView("pesquisaTitulo");
         andView.addObject("titulos", allTitulos);
         return andView;
     }
-    
+
     @RequestMapping("/search")
-    public ModelAndView search(@ModelAttribute("filtro") TituloFilter filtro) {     
+    public ModelAndView search(@ModelAttribute("filtro") TituloFilter filtro) {
         List<Titulo> allTitulos = tituloService.filter(filtro);
         ModelAndView andView = new ModelAndView("pesquisaTitulo");
         andView.addObject("titulos", allTitulos);
@@ -90,14 +94,25 @@ public class TituloController {
         attributes.addFlashAttribute("mensagem", "Título excluído com sucesso!");
         return "redirect:/titulos";
     }
-    
+
     @RequestMapping(value = "/{codigo}/receber", method = RequestMethod.PUT)
-    public @ResponseBody String changeStatus(@PathVariable("codigo") Integer codigoTitulo){
-        return tituloService.recebe(codigoTitulo); 
+    public @ResponseBody
+    String changeStatus(@PathVariable("codigo") Integer codigoTitulo) {
+        return tituloService.recebe(codigoTitulo);
     }
 
     @ModelAttribute("allStatusTitle")
     public List<StatusTitulo> AllStatusTitle() {
         return Arrays.asList(StatusTitulo.values());
+    }
+
+    @ModelAttribute("allStatusTitlePendente")
+    public Integer AllStatusTitlePendente() {
+        return tituloRepository.countByStatus(StatusTitulo.PENDENTE);
+    }
+
+    @ModelAttribute("allStatusTitleRecebido")
+    public Integer AllStatusTitleRecebidos() {
+        return tituloRepository.countByStatus(StatusTitulo.RECEBIDO);
     }
 }
