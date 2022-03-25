@@ -98,6 +98,7 @@ public class TituloController {
     @RequestMapping(value = "/{codigo}/receber", method = RequestMethod.PUT)
     public @ResponseBody
     String changeStatus(@PathVariable("codigo") Integer codigoTitulo) {
+        AllStatusTitleRecebidos();
         return tituloService.recebe(codigoTitulo);
     }
 
