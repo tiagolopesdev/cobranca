@@ -43,14 +43,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <h1><span th:text="${#lists.size(titulos)}" class="badge badge-warning"></span></h1>
                     </div> 
                     <div class="row" id="countAllStatus">
-                        <div class="col-md-4">
-                            <h5>Título(s) pendente(s): <span th:text="${allStatusTitlePendente}"></span></h5>
-                        </div>
-                    </div>
-                    <div class="row" id="countAllStatus">
-                        <div class="col-md-4">
-                            <h5>Título(s) recebido(s) <span th:text="${allStatusTitleRecebido}"></span></h5>
-                        </div>
+                        <button type="button" class="btn btn-light">
+                            Título(s) pendente(s) <span th:text="${allStatusTitlePendente}" class="badge bg-warning"></span>
+                        </button>
+                        <button type="button" class="btn btn-light">
+                            Título(s) recebido(s) <span th:text="${allStatusTitleRecebido}" class="badge bg-warning"></span>
+                        </button>
                     </div>
                 </div>
                 <div class="table-responsive">

@@ -14,12 +14,13 @@
 
 #countAllTitles{
     float: right;
-    align-items: baseline;
-    padding-right: 10%;
+    align-items: baseline;    
     padding-bottom: 2%;
 }
+
 #countAllStatus{
-    align-items: center;
+    float: left;
+    padding-bottom: 20px;
 }
 
 .navbar-brand{
@@ -29,7 +30,6 @@
 .panel-heading{
     padding: 20px 15px 20px 15px;
 }
-
 
 .link-panel{
     float: right;
