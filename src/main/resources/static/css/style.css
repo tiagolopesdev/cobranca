@@ -18,6 +18,9 @@
     padding-right: 10%;
     padding-bottom: 2%;
 }
+#countAllStatus{
+    align-items: center;
+}
 
 .navbar-brand{
     padding-top: 12px;
