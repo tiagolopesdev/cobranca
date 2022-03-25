@@ -40,7 +40,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="row" id="countAllTitles">
                     <h4 id="textElement">Total de títulos:</h4>                               
                     <h1 class=""><span th:text="${#lists.size(titulos)}"></span></h1>
-                </div>
+                </div>                          
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -87,10 +87,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     </a>                                
                                 </td>
                             </tr>
-                            <tr>
-                                <td th:if="${#lists.isEmpty(titulos)}">Nenhum título encontrado.</td>
-                            </tr>
                         </tbody>
+                        <div th:if="${#lists.isEmpty(titulos)}" class="alert alert-warning">
+                            <h5 class="text-center" id="textIsEmpty">Título(s) <strong>não encontrado(os).</strong></h5>
+                        </div>
                     </table>
                 </div>
             </div> 
