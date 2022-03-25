@@ -38,8 +38,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </div>
                 </form>
                 <div class="row" id="countAllTitles">
-                    <h4 id="textElement">Total de títulos:</h4>                               
-                    <h1 class=""><span th:text="${#lists.size(titulos)}"></span></h1>
+                    <h5>Total de títulos</h5>        
+                    <h1><span th:text="${#lists.size(titulos)}" class="badge badge-warning"></span></h1>
                 </div>                          
                 <div class="table-responsive">
                     <table class="table table-striped">
