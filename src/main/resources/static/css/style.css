@@ -12,6 +12,11 @@
 
 }
 
+#addCartao{
+    float: right;
+    padding: 3px;
+}
+
 #countAllTitles{
     float: right;
     align-items: baseline;    
@@ -33,7 +38,6 @@
 
 .link-panel{
     float: right;
-    padding: 5px;
 }
 
 .titulo-panel{

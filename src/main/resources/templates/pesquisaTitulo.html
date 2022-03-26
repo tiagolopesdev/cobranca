@@ -16,8 +16,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div th:replace="mensagem"></div>
                 <div class="clearfix">
                     <h5 class="panel-title titulo-panel">Pesquisa de títulos</h5>
-                    <a class="btn btn-info btn-toolbar link-panel" th:href="@{/titulos/new}">Adicionar título</a> 
+                    <a class="btn btn-info link-panel" th:href="@{/titulos/new}">Adicionar título</a> 
                 </div>
+                    <a class="btn btn-outline-success" id="addCartao" th:href="@{/cartao/new}">Adicionar cartão</a> 
             </div>
             <div class="panel-body">
                 <form method="GET" class="form-horizontal" th:action="@{/titulos/search}" th:object="${filtro}" id="search">
