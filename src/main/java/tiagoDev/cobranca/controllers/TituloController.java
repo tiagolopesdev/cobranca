@@ -20,11 +20,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import tiagoDev.cobranca.model.Cartao;
 
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.model.Titulo;
 import tiagoDev.cobranca.repository.TituloRepository;
 import tiagoDev.cobranca.repository.filter.TituloFilter;
+import tiagoDev.cobranca.services.CartaoService;
 import tiagoDev.cobranca.services.TituloService;
 
 /**
@@ -40,6 +42,9 @@ public class TituloController {
 
     @Autowired
     private TituloRepository tituloRepository;
+    
+    @Autowired
+    private CartaoService cartaoService;
 
     private static final String CADASTRO_VIEW = "cadastroTitulo";
 
@@ -116,4 +121,11 @@ public class TituloController {
     public Integer AllStatusTitleRecebidos() {
         return tituloRepository.countByStatus(StatusTitulo.RECEBIDO);
     }
+    
+    @ModelAttribute("allCartao")
+    public List<Cartao> AllCartao() {
+        List<Cartao> allCartoes = cartaoService.findAllCartaoService();
+        return allCartoes;
+    }
+    
 }
