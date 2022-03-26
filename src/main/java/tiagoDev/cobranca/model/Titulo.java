@@ -14,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
@@ -58,6 +59,9 @@ public class Titulo {
     
     @Enumerated(EnumType.STRING)
     private StatusTitulo status;
+    
+    @ManyToOne
+    private Cartao cartao;
 
     public Titulo() {
     }

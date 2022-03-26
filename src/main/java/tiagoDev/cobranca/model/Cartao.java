@@ -4,10 +4,12 @@
  */
 package tiagoDev.cobranca.model;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,6 +35,9 @@ public class Cartao {
         this.name = name;
     }
 
+    @OneToMany(mappedBy = "cartao")
+    private List<Titulo> titulo;
+    
     public Cartao() {
     }
 
