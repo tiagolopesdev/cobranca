@@ -46,14 +46,20 @@ and open the template in the editor.
                                        id="valor" th:field="*{valor}"/>                           
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="status" class="col-sm-2 control-label">Status</label>
-                            <div class="col-sm-2">
+                        <div class="form-row" style="padding-left: 15px;">
+                            <div class="form-group col-md-4">
+                                <label for="status">Status</label>
                                 <select class="form-control" name="status">
                                     <option th:each="status : ${allStatusTitle}" th:value="${status}" th:text="${status.descricao}"
                                             th:field="*{status}"></option>
-                                </select>
-                            </div>
+                                </select>                                
+                            </div>                            
+                            <div class="form-group col-md-4">
+                                <label for="cartao">Cartão</label>
+                                <select class="form-control" name="cartao">
+                                    <option th:each="cartao : ${allCartao}" th:value="${cartao.id}" th:text="${cartao.name}"></option>
+                                </select>                                
+                            </div>                            
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
