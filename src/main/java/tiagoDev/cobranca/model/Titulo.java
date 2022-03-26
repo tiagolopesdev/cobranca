@@ -66,11 +66,12 @@ public class Titulo {
     public Titulo() {
     }
 
-    public Titulo(String descricao, Date dataVencimento, BigDecimal valor, StatusTitulo status) {
+    public Titulo(String descricao, Date dataVencimento, BigDecimal valor, StatusTitulo status, Cartao c) {
         this.descricao = descricao;
         this.dataVencimento = dataVencimento;
         this.valor = valor;
         this.status = status;
+        this.cartao = c;
     }
     
     public boolean isPendente(){
