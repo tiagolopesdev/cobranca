@@ -27,6 +27,8 @@ $(function () {
         thousands: '.',
         allowZero: true
     });
+    
+    $('#valorTotal').mask('#.##0,00', {reverse: true});
 
     $('.js-status').on('click', function (event) {
         event.preventDefault();
