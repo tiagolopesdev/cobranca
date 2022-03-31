@@ -55,7 +55,7 @@ public class Titulo {
     @DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
     @DecimalMax(value = "9999999.99", message = "Valor não pode ser maior que 9.999.999,99")
     @NumberFormat(pattern = "#,##0.00")
-    private BigDecimal valor;
+    private Double valor;
     
     @Enumerated(EnumType.STRING)
     private StatusTitulo status;
@@ -66,7 +66,7 @@ public class Titulo {
     public Titulo() {
     }
 
-    public Titulo(String descricao, Date dataVencimento, BigDecimal valor, StatusTitulo status, Cartao c) {
+    public Titulo(String descricao, Date dataVencimento, Double valor, StatusTitulo status, Cartao c) {
         this.descricao = descricao;
         this.dataVencimento = dataVencimento;
         this.valor = valor;
