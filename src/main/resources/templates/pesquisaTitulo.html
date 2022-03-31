@@ -44,8 +44,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <h1><span th:text="${#lists.size(titulos)}" class="badge badge-dark text-white"></span></h1>
                     </div> 
                     <div class="row" id="countAllPrice">
-                        <p>Preço total</p>        
-                        <h3><span th:text="${#lists.size(titulos)}" class="badge rounded-pill bg-info text-white"></span></h3>
+                        <h5>Preço total</h5>
+                        <h2><span th:text="${allPriceTitle}" class="badge rounded-pill bg-light text-dark" id="valorTotal"></span></h2>
                     </div> 
                     <div class="row" id="countAllStatus">
                         <button type="button" class="btn btn-light">
