@@ -41,7 +41,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <div class="container">
                     <div class="row" id="countAllTitles"> 
                         <h5>Total de títulos</h5>        
-                        <h1><span th:text="${#lists.size(titulos)}" class="badge badge-warning"></span></h1>
+                        <h1><span th:text="${#lists.size(titulos)}" class="badge badge-dark text-white"></span></h1>
+                    </div> 
+                    <div class="row" id="countAllPrice">
+                        <p>Preço total</p>        
+                        <h3><span th:text="${#lists.size(titulos)}" class="badge rounded-pill bg-info text-white"></span></h3>
                     </div> 
                     <div class="row" id="countAllStatus">
                         <button type="button" class="btn btn-light">

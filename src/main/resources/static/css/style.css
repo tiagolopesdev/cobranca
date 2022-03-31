@@ -1,13 +1,13 @@
 
 @media(min-width: 768px){
- 
+
     .panel-default{
-    margin-left: 50px;
-    margin-right: 50px;
-    padding-top: 50px;
+        margin-left: 50px;
+        margin-right: 50px;
+        padding-top: 50px;
     }
     .panel-body{
-    padding: 0px 15px 0px 15px;
+        padding: 0px 15px 0px 15px;
     }
 
 }
@@ -19,8 +19,13 @@
 
 #countAllTitles{
     float: right;
-    align-items: baseline;    
-    padding-bottom: 2%;
+    align-items: baseline;
+    padding-bottom: 8%;
+}
+
+#countAllPrice{
+    display: flex;
+    align-items: baseline;
 }
 
 #countAllStatus{
