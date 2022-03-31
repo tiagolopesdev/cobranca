@@ -5,8 +5,10 @@
  */
 package tiagoDev.cobranca.controllers;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BinaryOperator;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,7 +44,7 @@ public class TituloController {
 
     @Autowired
     private TituloRepository tituloRepository;
-    
+
     @Autowired
     private CartaoService cartaoService;
 
@@ -121,11 +123,25 @@ public class TituloController {
     public Integer AllStatusTitleRecebidos() {
         return tituloRepository.countByStatus(StatusTitulo.RECEBIDO);
     }
-    
+
     @ModelAttribute("allCartao")
     public List<Cartao> AllCartao() {
         List<Cartao> allCartoes = cartaoService.findAllCartaoService();
         return allCartoes;
     }
-    
+
+    @ModelAttribute("allPriceTitle")
+    public String AllPriceTitle() {
+        List<Titulo> allTitulos = tituloRepository.findAll();
+        BinaryOperator<Double> soma = (ac, n) -> ac + n;
+
+        if (allTitulos.isEmpty()) {
+            return "0";
+        } else {
+            return allTitulos.stream()
+                    .filter(a -> a.getValor() != null)
+                    .map(a -> a.getValor())
+                    .reduce(soma).get() + "";
+        }
+    }
 }
