@@ -132,16 +132,6 @@ public class TituloController {
 
     @ModelAttribute("allPriceTitle")
     public String AllPriceTitle() {
-        List<Titulo> allTitulos = tituloRepository.findAll();
-        BinaryOperator<Double> soma = (ac, n) -> ac + n;
-
-        if (allTitulos.isEmpty()) {
-            return "0";
-        } else {
-            return allTitulos.stream()
-                    .filter(a -> a.getValor() != null)
-                    .map(a -> a.getValor())
-                    .reduce(soma).get() + "";
-        }
+        return tituloService.AllPriceTitleService();
     }
 }

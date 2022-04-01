@@ -6,6 +6,7 @@ package tiagoDev.cobranca.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.BinaryOperator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,20 @@ public class TituloService {
 
     public List<Titulo> getAllTitles(){
         return tituloRepository.findAll();
+    }
+    
+    public String AllPriceTitleService(){
+        List<Titulo> allTitulos = tituloRepository.findAll();
+        BinaryOperator<Double> soma = (ac, n) -> ac + n;
+
+        if (allTitulos.isEmpty()) {
+            return "0";
+        } else {
+            return allTitulos.stream()
+                    .filter(a -> a.getValor() != null)
+                    .map(a -> a.getValor())
+                    .reduce(soma).get() + "";
+        }
     }
     
 }
