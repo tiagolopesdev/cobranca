@@ -45,28 +45,32 @@ public class TituloService {
         tituloRepository.save(t);
         return StatusTitulo.RECEBIDO.getDescricao();
     }
-    
-    public List<Titulo> filter(TituloFilter tf){
+
+    public List<Titulo> filter(TituloFilter tf) {
         String descricao = tf.getDescricao() == null ? "%" : tf.getDescricao();
         return tituloRepository.findByDescricaoContaining(descricao);
     }
 
-    public List<Titulo> getAllTitles(){
+    public List<Titulo> getAllTitles() {
         return tituloRepository.findAll();
     }
-    
-    public String AllPriceTitleService(){
-        List<Titulo> allTitulos = tituloRepository.findAll();
-        BinaryOperator<Double> soma = (ac, n) -> ac + n;
 
+    public String AllPriceTitleService() {
+        List<Titulo> allTitulos = tituloRepository.findAll();
+        BinaryOperator<Double> soma = (ac, n) -> ac + n;        
         if (allTitulos.isEmpty()) {
             return "0";
         } else {
-            return allTitulos.stream()
+            String result = allTitulos.stream()
                     .filter(a -> a.getValor() != null)
                     .map(a -> a.getValor())
                     .reduce(soma).get() + "";
+            String[] output = result.split("");
+            if (output.length < 7) {
+                return result + "0";
+            }
+            return result;
         }
     }
-    
+
 }
