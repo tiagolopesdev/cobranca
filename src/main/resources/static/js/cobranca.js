@@ -27,7 +27,7 @@ $(function () {
         thousands: '.',
         allowZero: true
     });
-    
+
     $('#valorTotal').mask('#.##0,00', {reverse: true});
 
     $('.js-status').on('click', function (event) {
@@ -44,6 +44,7 @@ $(function () {
         response.done(function (e) {
             var codigoTitulo = buttonSet.data('codigo');
             $('[data-role=' + codigoTitulo + ']').html('<span class="badge badge-pill badge-success">' + e + '</span>');
+            location.reload();
             var codigoTitulo = buttonSet.hide();
         });
 
