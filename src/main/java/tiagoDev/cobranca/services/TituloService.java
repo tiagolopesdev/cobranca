@@ -5,11 +5,12 @@
 package tiagoDev.cobranca.services;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.function.BinaryOperator;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.repository.TituloRepository;
 import tiagoDev.cobranca.model.Titulo;
@@ -55,21 +56,18 @@ public class TituloService {
         return tituloRepository.findAll();
     }
 
-    public String AllPriceTitleService() {
+    public Number AllPriceTitleService() {
         List<Titulo> allTitulos = tituloRepository.findAll();
-        BinaryOperator<Double> soma = (ac, n) -> ac + n;        
+        BinaryOperator<Double> soma = (ac, n) -> ac + n;
         if (allTitulos.isEmpty()) {
-            return "0";
-        } else {
+            return 0.00;
+        } else {            
             String result = allTitulos.stream()
                     .filter(a -> a.getValor() != null)
                     .map(a -> a.getValor())
-                    .reduce(soma).get() + "";
-            String[] output = result.split("");
-            if (output.length < 7) {
-                return result + "0";
-            }
-            return result;
+                    .reduce(soma).get() + "";                                    
+            Double a = Double.parseDouble(result);            
+            return a;
         }
     }
 
