@@ -131,7 +131,7 @@ public class TituloController {
     }
 
     @ModelAttribute("allPriceTitle")
-    public String AllPriceTitle() {
+    public Number AllPriceTitle() {
         return tituloService.AllPriceTitleService();
     }
 }
