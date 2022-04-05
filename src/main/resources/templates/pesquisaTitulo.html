@@ -45,7 +45,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </div> 
                     <div class="row" id="countAllPrice">
                         <h5>Preço total</h5>
-                        <h2><span th:text="${#numbers.formatDecimal(allPriceTitle, 1, 'COMMA', 2, 'POINT')}" class="badge rounded-pill bg-light text-dark" id="valorTotal"></span></h2>
+                        <h2><span th:text="${#numbers.formatDecimal(allPriceTitle, 1, 'POINT', 2, 'COMMA')}" class="badge rounded-pill bg-light text-dark" id="valorTotal"></span></h2>
                     </div> 
                     <div class="row" id="countAllStatus">
                         <button type="button" class="btn btn-light">
