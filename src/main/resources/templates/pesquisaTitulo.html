@@ -74,7 +74,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                 <td class="text-center" th:text="${{titulo.dataVencimento}}"></td>
                                 <td class="text-center">
                                     <h5>                                        
-                                        <span class="badge badge-success" th:text="${titulo.cartao.name}"></span>
+                                        <span class="badge badge-success" th:text="${titulo.cartao?.name}"></span>
                                     </h5>
                                 </td>
                                 <td class="text-right" th:text="|R$ ${{titulo.valor}}|"></td>
