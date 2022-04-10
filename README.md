@@ -33,6 +33,29 @@
 ![edição titulo ‑ Made with FlexClip](https://user-images.githubusercontent.com/58925056/154816088-0f9ce9c7-c189-4e70-985c-03fce89ba0eb.gif)
 
 # Versões
+  
+## Implementações Versão - 2.0
+
+- [x]  Mensagem de titulos não encontrados.
+- [x]  Mostrando quantidade de titulos no banco de dados, bem como a quantidade de titulos pendentes e recebidos.
+- [x]  Adicionar de qual cartão é a conta, ex: comprei um tênis no **cartão do nubank** adicionar o cartão como uma tag como está com pendente com concluído.
+- [x]  Adicionar o total do valor
+  ### Para exibir o preço total dos títulos foi usado o método utilitário, disponivel pelo thymeleaf, abaixo:
+
+```Java
+  formatDecimal(Number target, Integer minIntegerDigits, String thousandsPointType, Integer decimalDigits, String decimalPoinType);
+```
+  - O primeiro parâmetro **requer o elemento** ao qual será feita a formatação;
+- O segundo parâmetro o **minimo de digitos inteiros;**
+- O terceiro parâmetro o **separador de milhar (’POINT’);**
+- O quarto parâmetro requer a **quantidade de digitos decimais** a qual será exibido ao usuário, no caso da aplicação, dois digítos;
+- O terceiro parâmetro o **separador decimal (’COMMA’);**
+
+**OBS:** Para metodos do tipo decimal e integer, há alguns separadores disponiveis 'POINT', 'COMMA', 'WHITESPACE', 'NONE' ou 'DEFAULT' (por local).
+
+[Referência](https://frontbackend.com/thymeleaf/thymeleaf-utility-methods-for-numbers)
+
+#### Todas as implementações podem ser conferidas na aplicação através do link que está na aba *About.*
 
 # Tecnologias utilizadas
 * Spring MVC
