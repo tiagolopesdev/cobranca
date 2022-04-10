@@ -1,5 +1,13 @@
 # :bulb: Projeto cobrança
 #### A aplicação tras a ideia de anotar suas cobranças, tanto pendentes quanto as recebidas ou concluídas.
+# Tópicos
+  1. [Status do projeto](#status-do-projeto)
+  2. [Funcionalidades da aplicação](#funcionalidades-da-aplicação)
+  3. [Versões](#versões)
+  4. [Demonstração da aplicação](#demonstração-da-aplicação)
+  5. [Tecnologias utilizadas](#tecnologias-utilizadas)
+  6. [Autor](#autor)
+  7. [Meus contatos](#meus-contatos)
 # Status do projeto
 #### Concluido. Mas, aplicando modificações com a finalidade de estudar os conceitos aprendidos dentro e fora do curso que proporcionou a construção da ideia do projeto, curso da AlgaWorks.
 # Funcionalidades da aplicação
@@ -24,8 +32,9 @@
 
 ![edição titulo ‑ Made with FlexClip](https://user-images.githubusercontent.com/58925056/154816088-0f9ce9c7-c189-4e70-985c-03fce89ba0eb.gif)
 
+# Versões
 
-# :hammer: Tecnologias Utilizadas
+# Tecnologias utilizadas
 * Spring MVC
 * Spring IoC
 * Spring Data
