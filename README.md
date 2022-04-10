@@ -4,7 +4,6 @@
   1. [Status do projeto](#status-do-projeto)
   2. [Funcionalidades da aplicação](#funcionalidades-da-aplicação)
   3. [Versões](#versões)
-  4. [Demonstração da aplicação](#demonstração-da-aplicação)
   5. [Tecnologias utilizadas](#tecnologias-utilizadas)
   6. [Autor](#autor)
   7. [Meus contatos](#meus-contatos)
@@ -15,22 +14,6 @@
 - [x] Mudança de estado do titulo, via Ajax.
 - [x] Mascara de valores da cobrança e da data.
 - [x] Pesquisa de titulos a partir de elementos que contenham.
-# Demonstração da aplicação
-:large_orange_diamond: Adicionando dados.
-
-![Sem título ‑ Made with FlexClip](https://user-images.githubusercontent.com/58925056/154815457-45c6caea-dfcb-4c9f-b16d-bdf6bd11e124.gif)
-
-:large_orange_diamond: Exluindo dados.
-
-![Sem título ‑ Made with FlexClip (2)](https://user-images.githubusercontent.com/58925056/154815738-c0b96208-b354-4db6-9b94-76c80df35d43.gif)
-
-:large_orange_diamond: Mudança de status
-
-![Mudandça de status ‑ Made with FlexClip](https://user-images.githubusercontent.com/58925056/154815931-0c65ae12-74cd-4280-9670-eb50d7ce63d6.gif)
-
-:large_orange_diamond: Edição titulo
-
-![edição titulo ‑ Made with FlexClip](https://user-images.githubusercontent.com/58925056/154816088-0f9ce9c7-c189-4e70-985c-03fce89ba0eb.gif)
 
 # Versões
   
