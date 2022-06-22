@@ -59,6 +59,9 @@ public class Titulo {
     
     @Enumerated(EnumType.STRING)
     private StatusTitulo status;
+        
+    @Enumerated(EnumType.STRING)
+    private StatusTipoTitulo statusTipoTitulo;
     
     @ManyToOne
     private Cartao cartao;
@@ -66,13 +69,18 @@ public class Titulo {
     public Titulo() {
     }
 
-    public Titulo(String descricao, Date dataVencimento, Double valor, StatusTitulo status, Cartao c) {
+    public Titulo(String descricao, Date dataVencimento, Double valor,
+            StatusTitulo status, StatusTipoTitulo statusTipoTitulo,
+            Cartao cartao) {        
         this.descricao = descricao;
         this.dataVencimento = dataVencimento;
         this.valor = valor;
         this.status = status;
-        this.cartao = c;
+        this.statusTipoTitulo = statusTipoTitulo;
+        this.cartao = cartao;
     }
+
+    
     
     public boolean isPendente(){
         return StatusTitulo.PENDENTE.equals(this.status);
