@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import tiagoDev.cobranca.model.Cartao;
+import tiagoDev.cobranca.model.StatusTipoTitulo;
 
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.model.Titulo;
@@ -110,6 +111,11 @@ public class TituloController {
     @ModelAttribute("allStatusTitle")
     public List<StatusTitulo> AllStatusTitle() {
         return Arrays.asList(StatusTitulo.values());
+    }
+    
+    @ModelAttribute("allStatusTipoTitulo")
+    public List<StatusTipoTitulo> AllStatusTipoTitulo(){
+        return Arrays.asList(StatusTipoTitulo.values());
     }
 
     @ModelAttribute("allStatusTitlePendente")
