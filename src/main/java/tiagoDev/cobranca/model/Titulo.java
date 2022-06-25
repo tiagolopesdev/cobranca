@@ -79,11 +79,13 @@ public class Titulo {
         this.statusTipoTitulo = statusTipoTitulo;
         this.cartao = cartao;
     }
-
-    
     
     public boolean isPendente(){
         return StatusTitulo.PENDENTE.equals(this.status);
+    }
+    
+    public boolean isDespesa(){
+        return StatusTipoTitulo.DESPESA.equals(this.statusTipoTitulo);
     }
 
     @Override
