@@ -55,20 +55,13 @@ public class TituloService {
     public List<Titulo> getAllTitles() {
         return tituloRepository.findAll();
     }
-
-    public Number AllPriceTitleService() {
-        List<Titulo> allTitulos = tituloRepository.findAll();
-        BinaryOperator<Double> soma = (ac, n) -> ac + n;
-        if (allTitulos.isEmpty()) {
+    
+    public Number AllTipoTituloService(Enum tipoTitulo){
+        List<Titulo> allTipoTitulo = (List<Titulo>) 
+                tituloRepository.findByStatusTipoTitulo(tipoTitulo);        
+        if (allTipoTitulo.isEmpty()) {
             return 0.00;
-        } else {            
-            String result = allTitulos.stream()
-                    .filter(a -> a.getValor() != null)
-                    .map(a -> a.getValor())
-                    .reduce(soma).get() + "";                                    
-            Double a = Double.parseDouble(result);            
-            return a;
         }
+        return t.sumTipoTitulo(allTipoTitulo, tipoTitulo);
     }
-
 }
