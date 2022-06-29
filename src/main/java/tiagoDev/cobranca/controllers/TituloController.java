@@ -7,8 +7,10 @@ package tiagoDev.cobranca.controllers;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -22,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import tiagoDev.cobranca.model.Cartao;
 import tiagoDev.cobranca.model.StatusTipoTitulo;
+import static tiagoDev.cobranca.model.StatusTipoTitulo.*;
 
 import tiagoDev.cobranca.model.StatusTitulo;
 import tiagoDev.cobranca.model.Titulo;
@@ -112,9 +115,9 @@ public class TituloController {
     public List<StatusTitulo> AllStatusTitle() {
         return Arrays.asList(StatusTitulo.values());
     }
-    
+
     @ModelAttribute("allStatusTipoTitulo")
-    public List<StatusTipoTitulo> AllStatusTipoTitulo(){
+    public List<StatusTipoTitulo> AllStatusTipoTitulo() {
         return Arrays.asList(StatusTipoTitulo.values());
     }
 
@@ -134,8 +137,13 @@ public class TituloController {
         return allCartoes;
     }
 
-    @ModelAttribute("allPriceTitle")
-    public Number AllPriceTitle() {
-        return tituloService.AllPriceTitleService();
+    @ModelAttribute("allDespesaTitle")
+    public Number AllDespesasTitle() {
+        return tituloService.AllTipoTituloService(DESPESA);
     }
+
+    @ModelAttribute("allReceitasTitle")
+    public Number AllReceitasTitle() {        
+        return tituloService.AllTipoTituloService(RECEITA);
+    }    
 }
