@@ -7,6 +7,8 @@ package tiagoDev.cobranca.model;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+import java.util.function.BinaryOperator;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -59,6 +61,9 @@ public class Titulo {
     
     @Enumerated(EnumType.STRING)
     private StatusTitulo status;
+        
+    @Enumerated(EnumType.STRING)
+    private StatusTipoTitulo statusTipoTitulo;
     
     @ManyToOne
     private Cartao cartao;
@@ -66,16 +71,32 @@ public class Titulo {
     public Titulo() {
     }
 
-    public Titulo(String descricao, Date dataVencimento, Double valor, StatusTitulo status, Cartao c) {
+    public Titulo(String descricao, Date dataVencimento, Double valor,
+            StatusTitulo status, StatusTipoTitulo statusTipoTitulo,
+            Cartao cartao) {        
         this.descricao = descricao;
         this.dataVencimento = dataVencimento;
         this.valor = valor;
         this.status = status;
-        this.cartao = c;
+        this.statusTipoTitulo = statusTipoTitulo;
+        this.cartao = cartao;
     }
     
     public boolean isPendente(){
         return StatusTitulo.PENDENTE.equals(this.status);
+    }
+    
+    public boolean isDespesa(){
+        return StatusTipoTitulo.DESPESA.equals(this.statusTipoTitulo);
+    }
+    
+    public Double sumTipoTitulo(List<Titulo> allTipoTitulo, Enum tipoTitulo){
+        BinaryOperator<Double> soma = (ac, n) -> ac + n;
+        Double result = allTipoTitulo.stream()
+                .filter(a -> a.getStatusTipoTitulo() == tipoTitulo)
+                .map(a -> a.getValor())
+                .reduce(soma).get();        
+        return result;
     }
 
     @Override
