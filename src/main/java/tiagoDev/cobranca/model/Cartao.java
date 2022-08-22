@@ -30,8 +30,7 @@ public class Cartao {
     @NotBlank(message = "Ops! Qual o nome do cartão?")
     private String name;
 
-    public Cartao(Integer id, String name) {
-        this.id = id;
+    public Cartao(String name) {        
         this.name = name;
     }
 
