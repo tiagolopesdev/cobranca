@@ -33,8 +33,14 @@ public class TituloTest {
         assertEquals(expected, tituloIns.sumTipoTitulo(listTitulos(), StatusTipoTitulo.DESPESA));
         assertTrue(tituloIns.sumTipoTitulo(listTitulos(), StatusTipoTitulo.DESPESA) < 250.00);
     }
+    
+    @Test
+    void shouldReturnNull() {        
+        Titulo instanceNull = new Titulo();
+        assertEquals(null, instanceNull.getValor());
+    }
 
-    List<Titulo> listTitulos() {
+    static List<Titulo> listTitulos() {
         Titulo instanOne = new Titulo("Compras mercado", new Date(), 100.00,
                 StatusTitulo.PENDENTE, StatusTipoTitulo.DESPESA, new Cartao("Nubank"));
         Titulo instanTwo = new Titulo("Compras farmacia", new Date(), 100.00,
