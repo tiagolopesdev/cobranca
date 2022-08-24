@@ -9,26 +9,30 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.FixedLocaleResolver;
+import tiagoDev.cobranca.model.Titulo;
 
 @SpringBootApplication
 public class CobrancaApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(CobrancaApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(CobrancaApplication.class, args);
+    }
 
-	@Bean
-	public FixedLocaleResolver localeResolver() {
-		return new FixedLocaleResolver(new Locale("pt", "BR"));
-	}
+    @Bean
+    public FixedLocaleResolver localeResolver() {
+        return new FixedLocaleResolver(new Locale("pt", "BR"));
+    }
 
-	@Configuration
-	public static class MvConfig extends WebMvcConfigurerAdapter {
+    @Configuration
+    public static class MvConfig extends WebMvcConfigurerAdapter {
 
-		public void addViewControllers(ViewControllerRegistry registry) {
-			registry.addRedirectViewController("/", "/titulos");
-		}
+        public void addViewControllers(ViewControllerRegistry registry) {
+            registry.addRedirectViewController("/", "/titulos");
+        }
+    }
 
-	}
-
+    @Bean()
+    Titulo getTitulo() {
+        return new Titulo();
+    }
 }
