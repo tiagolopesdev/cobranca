@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.FixedLocaleResolver;
 import tiagoDev.cobranca.model.Titulo;
+import tiagoDev.cobranca.services.TituloService;
 
 @SpringBootApplication
 public class CobrancaApplication {
@@ -34,5 +35,10 @@ public class CobrancaApplication {
     @Bean()
     Titulo getTitulo() {
         return new Titulo();
+    }
+    
+    @Bean()
+    TituloService getTituloService() {
+        return new TituloService();
     }
 }
