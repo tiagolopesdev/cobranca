@@ -26,7 +26,8 @@ public class TituloService {
     @Autowired
     private TituloRepository tituloRepository;
 
-    Titulo t = new Titulo();
+    @Autowired
+	Titulo titulo;
 
     public void saveTituloService(Titulo t) {
         try {
@@ -41,9 +42,9 @@ public class TituloService {
     }
 
     public String recebe(Integer codigoTitulo) {
-        t = tituloRepository.findById(codigoTitulo).get();
-        t.setStatus(StatusTitulo.RECEBIDO);
-        tituloRepository.save(t);
+        titulo = tituloRepository.findById(codigoTitulo).get();
+        titulo.setStatus(StatusTitulo.RECEBIDO);
+        tituloRepository.save(titulo);
         return StatusTitulo.RECEBIDO.getDescricao();
     }
 
@@ -57,11 +58,11 @@ public class TituloService {
     }
     
     public Number AllTipoTituloService(Enum tipoTitulo){
-        List<Titulo> allTipoTitulo = (List<Titulo>) 
-                tituloRepository.findByStatusTipoTitulo(tipoTitulo);        
+        List<Titulo> allTipoTitulo = (List<Titulo>) tituloRepository.
+        		findByStatusTipoTitulo(tipoTitulo);        
         if (allTipoTitulo.isEmpty()) {
             return 0.00;
         }
-        return t.sumTipoTitulo(allTipoTitulo, tipoTitulo);
+        return titulo.sumTipoTitulo(allTipoTitulo, tipoTitulo);
     }
 }
