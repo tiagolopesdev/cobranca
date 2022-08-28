@@ -13,7 +13,7 @@
     <name>cobranca</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17.0.1</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -24,13 +24,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
+        </dependency>	
 
         <!--        <dependency>
             <groupId>org.postgresql</groupId>
@@ -75,6 +69,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>            
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -84,19 +84,19 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-                <configuration>            
-                    <testFailureIgnore>true</testFailureIgnore>       
-                    <statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
-                        <version>3.0</version>
-                        <usePhrasedTestSuiteClassName>true</usePhrasedTestSuiteClassName>
-                        <usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>
-                        <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
-                    </statelessTestsetReporter>
-                </configuration>                                        
-            </plugin>
+<!--            <plugin>-->
+<!--                <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                <version>3.0.0-M5</version>-->
+<!--                <configuration>            -->
+<!--                    <testFailureIgnore>true</testFailureIgnore>       -->
+<!--                    <statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">-->
+<!--                        <version>3.0</version>-->
+<!--                        <usePhrasedTestSuiteClassName>true</usePhrasedTestSuiteClassName>-->
+<!--                        <usePhrasedTestCaseClassName>true</usePhrasedTestCaseClassName>-->
+<!--                        <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>-->
+<!--                    </statelessTestsetReporter>-->
+<!--                </configuration>                                        -->
+<!--            </plugin>-->
         </plugins>
     </build>
 
