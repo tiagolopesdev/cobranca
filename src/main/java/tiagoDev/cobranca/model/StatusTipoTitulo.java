@@ -4,20 +4,13 @@
  */
 package tiagoDev.cobranca.model;
 
-import lombok.Getter;
-
-/**
- *
- * @author tiagolopes
- */
-@Getter
 public enum StatusTipoTitulo {
-    RECEITA("Receita"),
-    DESPESA("Despesa");
 
-    private String descricaoTipoTitulo;
+	RECEITA("Receita"), DESPESA("Despesa");
 
-    private StatusTipoTitulo(String descricaoTipoTitulo) {
-        this.descricaoTipoTitulo = descricaoTipoTitulo;
-    }
+	private String descricaoTipoTitulo;
+
+	private StatusTipoTitulo(String descricaoTipoTitulo) {
+		this.descricaoTipoTitulo = descricaoTipoTitulo;
+	}
 }

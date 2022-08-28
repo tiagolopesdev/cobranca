@@ -11,16 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
-import lombok.Getter;
-import lombok.Setter;
 
-/**
- *
- * @author tiagolopes
- */
 @Entity
-@Getter
-@Setter
 public class Cartao {
 
     @Id
@@ -40,4 +32,27 @@ public class Cartao {
     public Cartao() {
     }
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<Titulo> getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(List<Titulo> titulo) {
+		this.titulo = titulo;
+	}       
 }

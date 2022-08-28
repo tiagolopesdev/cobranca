@@ -5,22 +5,21 @@
  */
 package tiagoDev.cobranca.model;
 
-import lombok.Getter;
-
-/**
- *
- * @author tiago
- */
-@Getter
 public enum StatusTitulo {
 
-    PENDENTE("Pendente"),
-    RECEBIDO("Recebido");
+	PENDENTE("Pendente"), RECEBIDO("Recebido");
 
-    private String descricao;
+	private String descricao;
 
-    private StatusTitulo(String descricao) {
-        this.descricao = descricao;
-    }
+	private StatusTitulo(String descricao) {
+		this.descricao = descricao;
+	}
 
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
 }

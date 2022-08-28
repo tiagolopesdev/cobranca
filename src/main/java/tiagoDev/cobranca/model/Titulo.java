@@ -25,9 +25,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
@@ -36,8 +33,6 @@ import org.springframework.format.annotation.NumberFormat;
  * @author tiago
  */
 @Entity
-@Getter
-@Setter
 public class Titulo {
 
     @Id
@@ -123,4 +118,59 @@ public class Titulo {
         return true;
     }
 
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Date getDataVencimento() {
+		return dataVencimento;
+	}
+
+	public void setDataVencimento(Date dataVencimento) {
+		this.dataVencimento = dataVencimento;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public StatusTitulo getStatus() {
+		return status;
+	}
+
+	public void setStatus(StatusTitulo status) {
+		this.status = status;
+	}
+
+	public StatusTipoTitulo getStatusTipoTitulo() {
+		return statusTipoTitulo;
+	}
+
+	public void setStatusTipoTitulo(StatusTipoTitulo statusTipoTitulo) {
+		this.statusTipoTitulo = statusTipoTitulo;
+	}
+
+	public Cartao getCartao() {
+		return cartao;
+	}
+
+	public void setCartao(Cartao cartao) {
+		this.cartao = cartao;
+	}
 }
