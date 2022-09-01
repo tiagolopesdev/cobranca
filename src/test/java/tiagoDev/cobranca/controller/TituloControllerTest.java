@@ -90,7 +90,27 @@ public class TituloControllerTest {
 				StatusTipoTitulo.DESPESA));
 		assertTrue(compareTrue.intValue() < this.tituloService.AllTipoTituloService(
 				StatusTipoTitulo.DESPESA).intValue());
-	}		
+	}
+	
+	@Test
+	@DisplayName("Verifica o preço total de RECEITAS")
+	void shouldReturnSumPriceRevenue() {
+		
+		Number compare = 150.0;
+		Number compareTrue = 200.0;
+		
+		Number getValuesInstance = listTitulos().stream()
+				.filter(a -> a.getStatusTipoTitulo() == StatusTipoTitulo.RECEITA)
+				.map(a -> a.getValor()).reduce((ac, n) -> ac + n).get(); 
+				
+		when(this.tituloService.AllTipoTituloService(StatusTipoTitulo
+				.RECEITA)).thenReturn(getValuesInstance);
+		
+		assertEquals(compare, this.tituloService.AllTipoTituloService(
+				StatusTipoTitulo.RECEITA));
+		assertTrue(compareTrue.intValue() > this.tituloService.AllTipoTituloService(
+				StatusTipoTitulo.RECEITA).intValue());
+	}
 
 	static List<Titulo> listTitulos() {		
 		Titulo instanOne = new Titulo("Compras mercado", new Date(), 100.00, StatusTitulo.PENDENTE,
