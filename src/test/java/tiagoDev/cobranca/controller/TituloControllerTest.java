@@ -71,6 +71,26 @@ public class TituloControllerTest {
 		when(this.tituloController.AllDespesasTitle()).thenReturn(0.00);
 		assertTrue(this.tituloController.AllDespesasTitle() != null);
 	}	
+	
+	@Test
+	@DisplayName("Verifica o preço total de DESPESAS")
+	void shouldReturnSumPriceExpense() {
+		
+		Number compare = 200.0;
+		Number compareTrue = 100.0;
+		
+		Number getValuesInstance = listTitulos().stream()
+			.filter(a -> a.getStatusTipoTitulo() == StatusTipoTitulo.DESPESA)
+			.map(a -> a.getValor()).reduce((ac, n) -> ac + n).get();                                 
+		
+		when(this.tituloService.AllTipoTituloService(StatusTipoTitulo
+				.DESPESA)).thenReturn(getValuesInstance);
+		
+		assertEquals(compare, this.tituloService.AllTipoTituloService(
+				StatusTipoTitulo.DESPESA));
+		assertTrue(compareTrue.intValue() < this.tituloService.AllTipoTituloService(
+				StatusTipoTitulo.DESPESA).intValue());
+	}		
 
 	static List<Titulo> listTitulos() {		
 		Titulo instanOne = new Titulo("Compras mercado", new Date(), 100.00, StatusTitulo.PENDENTE,
